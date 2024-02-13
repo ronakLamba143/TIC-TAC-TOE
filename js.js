@@ -51,7 +51,7 @@ const winnerCheck = () => {
 }
 
 const showWinner = (winner) => {
-    msg.innerText = `CELEBRATIONS, WINNER IS ${winner}`;
+    msg.innerText = `CONGRATULATIONS, WINNER IS ${winner}`;
     winmsg.classList.remove("hide");
     disablebt();
 }
