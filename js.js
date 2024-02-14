@@ -44,6 +44,7 @@ const winnerCheck = () => {
                 if(pos1 == pos2 && pos2 == pos3){
                     console.log("winner",pos1);
                     showWinner(pos1);
+                    startConfetti();
                 }
             }
             
@@ -60,6 +61,7 @@ const resetGame = () => {
     turnO =true;
     enablebt();
     winmsg.classList.add("hide");
+    stopConfetti();
 
 }
 
@@ -77,3 +79,10 @@ const enablebt =()=> {
 
 newgame.addEventListener("click",resetGame);
 clears.addEventListener("click",resetGame);
+
+
+canvas = document.createElement('canvas');
+
+document.body.appendChild(canvas);
+
+
