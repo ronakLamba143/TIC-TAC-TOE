@@ -3,7 +3,7 @@ let clears = document.querySelector("#clear");
 let newgame = document.querySelector("#newgame");
 let winmsg = document.querySelector(".winmsg");
 let msg = document.querySelector("#msg");
-
+let count=0;
 let turnO = true;
 
 const winPat = [
@@ -19,21 +19,26 @@ const winPat = [
 
 gamespaces.forEach ((gamespace) =>{
     gamespace.addEventListener("click",() => {
-        console.log("gamespace was clicked");
         if(turnO){ // hinglish= iss loop se ye pta chal rha hai ki turn kiski hai //
             gamespace.innerText ="O";
+            count+=1;
             turnO = false;
         }else{
             gamespace.innerText ="X";
             turnO= true;
+            count+=1;
         }
         gamespace.disabled = true;
-
+        
         winnerCheck();
     });
 });
 
 const winnerCheck = () => {
+    if(count===9)
+    {
+        showDraw();
+    }
     for (pat of winPat){
 
             let pos1 = gamespaces[pat[0]].innerText;
@@ -56,7 +61,11 @@ const showWinner = (winner) => {
     winmsg.classList.remove("hide");
     disablebt();
 }
-
+const showDraw = () => {
+    msg.innerText = `Game IS draw`;
+    winmsg.classList.remove("hide");
+    disablebt();
+}
 const resetGame = () => {
     turnO =true;
     enablebt();
