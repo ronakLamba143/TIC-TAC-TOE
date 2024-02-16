@@ -21,12 +21,12 @@ gamespaces.forEach ((gamespace) =>{
     gamespace.addEventListener("click",() => {
         if(turnO){ // hinglish= iss loop se ye pta chal rha hai ki turn kiski hai //
             gamespace.innerText ="O";
-            count+=1;
+            count=count+1;
             turnO = false;
         }else{
             gamespace.innerText ="X";
             turnO= true;
-            count+=1;
+            count=count+1;
         }
         gamespace.disabled = true;
         
@@ -68,6 +68,7 @@ const showDraw = () => {
 }
 const resetGame = () => {
     turnO =true;
+    count=0;
     enablebt();
     winmsg.classList.add("hide");
     stopConfetti();
